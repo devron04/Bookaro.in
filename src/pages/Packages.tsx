@@ -106,7 +106,7 @@ export default function Packages() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Filters Column */}
-          <div className="lg:col-span-1 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm h-fit">
+          <div className="lg:col-span-1 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm h-fit lg:sticky lg:top-24">
             <div className="flex items-center space-x-2 pb-4 border-b border-slate-100 mb-6">
               <SlidersHorizontal className="h-5 w-5 text-primary-purple" />
               <h3 className="font-heading font-extrabold text-lg text-darktext">Filters</h3>

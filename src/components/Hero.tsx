@@ -43,7 +43,7 @@ export default function Hero() {
       </div>
 
       {/* Floating Search Bar Widget */}
-      <div className="absolute bottom-0 left-0 right-0 z-30 transform translate-y-1/2 flex justify-center px-4">
+      <div id="search-widget" style={{ scrollMarginTop: '120px' }} className="absolute bottom-0 left-0 right-0 z-30 transform translate-y-1/2 flex justify-center px-4">
         <div className="w-full max-w-6xl bg-white rounded-t-xl md:rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] overflow-hidden">
           {/* Main Input Row */}
           <div className="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-200 p-2 md:p-0">

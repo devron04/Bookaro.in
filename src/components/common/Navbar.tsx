@@ -8,6 +8,8 @@ export default function Navbar() {
   const [isBannerVisible, setIsBannerVisible] = React.useState(true);
   const location = useLocation();
   const currentPage = location.pathname;
+  const isHome = currentPage === '/';
+  const isSolid = !isHome || isScrolled;
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -28,12 +30,12 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      isScrolled 
+      isSolid 
         ? 'bg-white shadow-md' 
         : 'bg-transparent border-transparent'
     }`}>
       {/* Top Promotional Banner */}
-      {isBannerVisible && (
+      {isBannerVisible && !isScrolled && (
         <div className="w-full bg-[#F3E5D0] text-[#1a1a1a] text-center py-2 text-xs md:text-sm font-semibold tracking-wide flex justify-center items-center relative z-50">
           <span>FLAT 50% OFF on 2nd night on our newest escapes. <span className="font-bold">Use code: BOOKKARO</span></span>
           <button 
@@ -56,7 +58,7 @@ export default function Navbar() {
               src="/bookkaro_logo.png"
               alt="Bookaro.in Logo"
               className={`h-[72px] md:h-[76px] w-auto object-contain transform group-hover:scale-102 transition-all duration-300 ${
-                !isScrolled ? 'brightness-0 invert' : ''
+                !isSolid ? 'brightness-0 invert' : ''
               }`}
             />
           </Link>
@@ -67,9 +69,15 @@ export default function Navbar() {
               <Link
                 key={item.id}
                 to={item.id}
+                onClick={(e) => {
+                  if (item.id === '/' && currentPage === '/') {
+                    e.preventDefault();
+                    document.getElementById('search-widget')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className={`px-4 py-2 rounded-full font-body text-sm font-medium transition-all duration-300 ${currentPage === item.id
-                    ? (isScrolled ? 'text-primary-purple font-bold' : 'text-white font-bold')
-                    : isScrolled
+                    ? (isSolid ? 'text-primary-purple font-bold' : 'text-white font-bold')
+                    : isSolid
                       ? 'text-slate-800 hover:text-primary-purple'
                       : 'text-white hover:text-slate-200'
                   }`}
@@ -100,7 +108,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 rounded-xl focus:outline-none transition-colors ${
-                isScrolled ? 'hover:bg-slate-100 text-slate-800' : 'hover:bg-white/10 text-white'
+                isSolid ? 'hover:bg-slate-100 text-slate-800' : 'hover:bg-white/10 text-white'
               }`}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -116,7 +124,15 @@ export default function Navbar() {
             <Link
               key={item.id}
               to={item.id}
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => {
+                setIsOpen(false);
+                if (item.id === '/' && currentPage === '/') {
+                  e.preventDefault();
+                  setTimeout(() => {
+                    document.getElementById('search-widget')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 50);
+                }
+              }}
               className={`block w-full text-left px-4 py-3 rounded-xl font-heading font-semibold text-sm transition-all ${currentPage === item.id
                   ? 'bg-primary-purple text-white'
                   : 'text-lighttext hover:bg-slate-100 hover:text-[#0F172A]'

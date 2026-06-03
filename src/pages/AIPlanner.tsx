@@ -173,10 +173,6 @@ export default function AIPlanner() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent" />
         <div className="relative z-10 text-center">
-          <div className="inline-flex items-center space-x-1.5 bg-primary-purple/35 border border-primary-purple/40 px-3 py-1 rounded-full text-white text-[10px] font-heading font-bold uppercase tracking-wider mb-2">
-            <Sparkles className="h-3 w-3 text-accent-pink animate-spin" />
-            <span>Next-Gen Travel Planning</span>
-          </div>
           <h1 className="text-4xl font-heading font-extrabold text-white mb-2">
             Bookaro AI Travel Planner
           </h1>

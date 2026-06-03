@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { ShieldCheck, X } from 'lucide-react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import Home from './pages/Home';
@@ -12,12 +13,10 @@ import AdminApp from './admin/AdminApp';
 import { useAppStore } from './store/useAppStore';
 
 function ScrollToTop() {
-  const { pathname } = window.location;
-  import('react').then(({ useEffect }) => {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [pathname]);
-  });
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return null;
 }
 

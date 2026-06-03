@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="space-y-0 pb-10">
       <Hero />
-      <div className="pt-16 pb-8 bg-white">
+      <div id="main-content" className="pt-16 pb-8 bg-white">
         <DestinationsGrid />
       </div>
       

@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import AdminDashboard from './pages/Dashboard';
 import VillaManager from './pages/VillaManager';
 import BookingsManager from './pages/BookingsManager';
@@ -7,12 +8,10 @@ import Analytics from './pages/Analytics';
 import Settings from './pages/Settings';
 
 function ScrollToTop() {
-  const { pathname } = window.location;
-  import('react').then(({ useEffect }) => {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [pathname]);
-  });
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return null;
 }
 
