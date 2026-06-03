@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { MapPin, Users, Bed, Star, X, Check, Phone } from 'lucide-react';
-import { villasData } from '../mockData';
-import type { Villa, Lead } from '../mockData';
+import { villasData } from '../store/mockData';
+import type { Villa } from '../store/mockData';
+import { useAppStore } from '../store/useAppStore';
 
-interface BookaroStaysProps {
-  onAddLead: (lead: Omit<Lead, 'id' | 'timestamp'>) => void;
-}
-
-export default function BookaroStays({ onAddLead }: BookaroStaysProps) {
+export default function BookaroStays() {
+  const onAddLead = useAppStore(state => state.addLead);
   const [selectedVilla, setSelectedVilla] = useState<Villa | null>(null);
   
   // Lead Booking State

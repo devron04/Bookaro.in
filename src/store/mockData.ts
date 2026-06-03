@@ -49,6 +49,9 @@ export interface Lead {
   status: 'new' | 'hot' | 'contacted' | 'completed';
   source: string;
   timestamp: string;
+  paymentStatus?: 'pending' | 'partial' | 'paid';
+  totalAmount?: number;
+  amountPaid?: number;
 }
 
 export const packagesData: Package[] = [
@@ -146,7 +149,7 @@ export const villasData: Villa[] = [
   },
   {
     id: 'villa-beachside-alibaug',
-    name: 'Casa De Amor Beach Retreat',
+    name: 'Ananda Beach Villa Alibaug',
     location: 'Alibaug, Maharashtra',
     pricePerNight: 22000,
     bedrooms: 5,
@@ -163,7 +166,7 @@ export const villasData: Villa[] = [
   },
   {
     id: 'villa-whispering-karjat',
-    name: 'Whispering Palms Oasis',
+    name: 'Panchvati Riverside Karjat',
     location: 'Karjat, Maharashtra',
     pricePerNight: 14000,
     bedrooms: 3,
@@ -312,5 +315,175 @@ export const initialLeads: Lead[] = [
     status: 'contacted',
     source: 'Visa Enquiry Form',
     timestamp: '2026-06-01 04:45 PM'
+  },
+  {
+    id: 'ld-4',
+    name: 'Vikram Singh',
+    phone: '9988776655',
+    email: 'vikram.singh@gmail.com',
+    destination: 'Maldives',
+    budget: '₹1,50,000',
+    travelDate: '2026-08-10',
+    message: 'Honeymoon package booked.',
+    type: 'package',
+    status: 'completed',
+    source: 'Holiday Package Enquiry',
+    timestamp: '2026-05-28 02:15 PM',
+    paymentStatus: 'partial',
+    totalAmount: 150000,
+    amountPaid: 50000
+  },
+  {
+    id: 'ld-5',
+    name: 'Priya Desai',
+    phone: '9876501234',
+    email: 'priya.desai@outlook.com',
+    destination: 'Ananda Beach Villa Alibaug',
+    budget: '₹44,000',
+    travelDate: '2026-07-05',
+    message: 'Family weekend getaway confirmed.',
+    type: 'villa',
+    status: 'completed',
+    source: 'Villa Booking Form',
+    timestamp: '2026-05-25 11:10 AM',
+    paymentStatus: 'paid',
+    totalAmount: 44000,
+    amountPaid: 44000
+  },
+  {
+    id: 'ld-6',
+    name: 'Neha Gupta',
+    phone: '9845123456',
+    email: 'neha.gpt89@gmail.com',
+    destination: 'Bali',
+    budget: '₹95,000',
+    travelDate: '2026-09-01',
+    message: 'Need a customized romantic itinerary for our anniversary.',
+    type: 'ai_planner',
+    status: 'new',
+    source: 'AI Trip Planner',
+    timestamp: '2026-06-03 08:20 AM'
+  },
+  {
+    id: 'ld-7',
+    name: 'Dr. Sameer Reddy',
+    phone: '9100022334',
+    email: 'drsameer@apollo.in',
+    destination: 'Schengen (Europe)',
+    type: 'visa',
+    status: 'hot',
+    source: 'Visa Enquiry Form',
+    timestamp: '2026-06-03 09:15 AM'
+  },
+  {
+    id: 'ld-8',
+    name: 'Kavita Menon',
+    phone: '9988112233',
+    destination: 'Panchvati Riverside Karjat',
+    budget: '₹28,000',
+    travelDate: '2026-06-15',
+    message: 'Corporate team outing for 10 people. Need projector and BBQ.',
+    type: 'villa',
+    status: 'contacted',
+    source: 'Villa Booking Form',
+    timestamp: '2026-06-02 02:40 PM'
+  },
+  {
+    id: 'ld-9',
+    name: 'Anil Kapoor',
+    phone: '9870098700',
+    email: 'anil.k@corporate.com',
+    destination: 'Singapore',
+    budget: '₹4,50,000',
+    travelDate: '2026-07-22',
+    message: 'Group booking for 15 employees. All inclusive.',
+    type: 'package',
+    status: 'completed',
+    source: 'Holiday Package Enquiry',
+    timestamp: '2026-05-20 11:30 AM',
+    paymentStatus: 'paid',
+    totalAmount: 450000,
+    amountPaid: 450000
+  },
+  {
+    id: 'ld-10',
+    name: 'Rohan Mehta',
+    phone: '9922334455',
+    destination: 'Goa',
+    budget: '₹35,000',
+    travelDate: '2026-06-25',
+    message: 'Looking for beachfront properties in North Goa.',
+    type: 'ai_planner',
+    status: 'hot',
+    source: 'AI Trip Planner',
+    timestamp: '2026-06-03 10:05 AM'
+  },
+  {
+    id: 'ld-11',
+    name: 'Meera Rajput',
+    phone: '9811223344',
+    email: 'meera.art@yahoo.com',
+    destination: 'United States (US)',
+    type: 'visa',
+    status: 'completed',
+    source: 'Visa Enquiry Form',
+    timestamp: '2026-05-15 03:20 PM',
+    paymentStatus: 'pending',
+    totalAmount: 15500,
+    amountPaid: 0
+  },
+  {
+    id: 'ld-12',
+    name: 'Suresh Raina',
+    phone: '9900119900',
+    destination: 'Mahabaleshwar',
+    budget: '₹12,000',
+    travelDate: '2026-06-10',
+    message: 'Budget trip with friends. Need near market.',
+    type: 'package',
+    status: 'new',
+    source: 'Holiday Package Enquiry',
+    timestamp: '2026-06-03 11:50 AM'
+  },
+  {
+    id: 'ld-13',
+    name: 'Aarti Chhabra',
+    phone: '9822334455',
+    email: 'aarti.c@outlook.com',
+    destination: 'BookaroStays Luxury Villa',
+    budget: '₹20,000',
+    travelDate: '2026-08-15',
+    message: 'Independence day long weekend booking.',
+    type: 'villa',
+    status: 'completed',
+    source: 'Villa Booking Form',
+    timestamp: '2026-05-10 09:15 AM',
+    paymentStatus: 'partial',
+    totalAmount: 20000,
+    amountPaid: 5000
+  },
+  {
+    id: 'ld-14',
+    name: 'Gaurav Khanna',
+    phone: '9155667788',
+    destination: 'Thailand',
+    budget: '₹45,000',
+    travelDate: '2026-07-05',
+    message: 'Bachelor party planning.',
+    type: 'ai_planner',
+    status: 'contacted',
+    source: 'AI Trip Planner',
+    timestamp: '2026-06-01 01:25 PM'
+  },
+  {
+    id: 'ld-15',
+    name: 'Pooja Hegde',
+    phone: '9988771122',
+    email: 'pooja.h@gmail.com',
+    destination: 'Dubai',
+    type: 'visa',
+    status: 'new',
+    source: 'Visa Enquiry Form',
+    timestamp: '2026-06-03 12:30 PM'
   }
 ];

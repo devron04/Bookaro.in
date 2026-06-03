@@ -1,10 +1,7 @@
 import { Mail, Phone, MapPin, ExternalLink, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface FooterProps {
-  setCurrentPage: (page: string) => void;
-}
-
-export default function Footer({ setCurrentPage }: FooterProps) {
+export default function Footer() {
   const seoKeywords = [
     'Travel Agency Ambernath',
     'Travel Packages Ambernath',
@@ -20,8 +17,8 @@ export default function Footer({ setCurrentPage }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
           <div className="space-y-4">
-            <div 
-              onClick={() => setCurrentPage('home')}
+            <Link 
+              to="/"
               className="flex items-center cursor-pointer group py-1"
             >
               <img 
@@ -29,7 +26,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
                 alt="Bookaro.in Logo" 
                 className="h-12 w-auto object-contain brightness-0 invert"
               />
-            </div>
+            </Link>
             
             <p className="font-heading font-semibold text-xs text-accent-pink uppercase tracking-widest">
               Book Karo, Bachat Karo
@@ -46,20 +43,20 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             </h3>
             <ul className="space-y-3 text-sm">
               {[
-                { id: 'home', label: 'Home Page' },
-                { id: 'packages', label: 'Holiday Packages' },
-                { id: 'stays', label: 'BookaroStays Villas' },
-                { id: 'visa', label: 'Visa Services' },
-                { id: 'planner', label: 'AI Trip Planner' },
-                { id: 'contact', label: 'Contact Us' }
+                { id: '/', label: 'Home Page' },
+                { id: '/packages', label: 'Holiday Packages' },
+                { id: '/stays', label: 'BookaroStays Villas' },
+                { id: '/visa', label: 'Visa Services' },
+                { id: '/planner', label: 'AI Trip Planner' },
+                { id: '/contact', label: 'Contact Us' }
               ].map((link) => (
                 <li key={link.id}>
-                  <button
-                    onClick={() => setCurrentPage(link.id)}
-                    className="hover:text-primary-purple transition-colors text-left"
+                  <Link
+                    to={link.id}
+                    className="hover:text-primary-purple transition-colors text-left block"
                   >
                     {link.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -95,14 +92,14 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             </h3>
             <div className="flex flex-wrap gap-2">
               {seoKeywords.map((keyword, idx) => (
-                <button
+                <Link
                   key={idx}
-                  onClick={() => setCurrentPage('packages')}
+                  to="/packages"
                   className="bg-slate-900 border border-slate-800 hover:border-primary-purple/40 text-slate-500 hover:text-white px-2.5 py-1.5 rounded-lg text-xs transition-all flex items-center space-x-1"
                 >
                   <span>{keyword}</span>
                   <ExternalLink className="h-2.5 w-2.5 opacity-60" />
-                </button>
+                </Link>
               ))}
             </div>
           </div>

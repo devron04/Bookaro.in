@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Search, SlidersHorizontal, Clock, Star, MapPin, X, Check, Phone } from 'lucide-react';
-import { packagesData } from '../mockData';
-import type { Package, Lead } from '../mockData';
+import { useSearchParams } from 'react-router-dom';
+import { packagesData } from '../store/mockData';
+import type { Package } from '../store/mockData';
+import { useAppStore } from '../store/useAppStore';
 
-interface PackagesProps {
-  onAddLead: (lead: Omit<Lead, 'id' | 'timestamp'>) => void;
-  filterDestination: string;
-  setFilterDestination: (destination: string) => void;
-}
+export default function Packages() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filterDestination = searchParams.get('dest') || '';
+  const onAddLead = useAppStore(state => state.addLead);
 
-export default function Packages({ onAddLead, filterDestination, setFilterDestination }: PackagesProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState<string>(filterDestination || '');
+  const [searchQuery, setSearchQuery] = useState<string>(filterDestination);
   const [maxBudget, setMaxBudget] = useState<number>(100000);
   const [filteredPackages, setFilteredPackages] = useState<Package[]>(packagesData);
   
@@ -128,7 +128,10 @@ export default function Packages({ onAddLead, filterDestination, setFilterDestin
                 />
                 {searchQuery && (
                   <button 
-                    onClick={() => { setSearchQuery(''); setFilterDestination(''); }} 
+                    onClick={() => { 
+                      setSearchQuery(''); 
+                      setSearchParams(prev => { prev.delete('dest'); return prev; }); 
+                    }} 
                     className="absolute right-3.5 top-3.5 text-slate-400 hover:text-slate-600"
                   >
                     <X className="h-4 w-4" />

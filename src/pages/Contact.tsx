@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Check, Send } from 'lucide-react';
-import type { Lead } from '../mockData';
+import { useAppStore } from '../store/useAppStore';
 
-interface ContactProps {
-  onAddLead: (lead: Omit<Lead, 'id' | 'timestamp'>) => void;
-}
-
-export default function Contact({ onAddLead }: ContactProps) {
+export default function Contact() {
+  const onAddLead = useAppStore(state => state.addLead);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');

@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import { Sparkles, Compass, CheckCircle } from 'lucide-react';
-import type { Lead } from '../mockData';
+import { useAppStore } from '../store/useAppStore';
 
-interface AIPlannerProps {
-  onAddLead: (lead: Omit<Lead, 'id' | 'timestamp'>) => void;
-}
-
-export default function AIPlanner({ onAddLead }: AIPlannerProps) {
+export default function AIPlanner() {
+  const onAddLead = useAppStore(state => state.addLead);
   // Inputs
   const [departure, setDeparture] = useState('Mumbai');
   const [travelType, setTravelType] = useState('family');

@@ -1,11 +1,9 @@
 import { MapPin, ArrowRight, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-interface TrendingProps {
-  setCurrentPage: (page: string) => void;
-  setFilterDestination?: (destination: string) => void;
-}
-
-export default function Trending({ setCurrentPage, setFilterDestination }: TrendingProps) {
+export default function Trending() {
+  const navigate = useNavigate();
+  
   const destinations = [
     {
       name: 'Goa',
@@ -52,10 +50,11 @@ export default function Trending({ setCurrentPage, setFilterDestination }: Trend
   ];
 
   const handleDestinationClick = (name: string) => {
-    if (setFilterDestination) {
-      setFilterDestination(name);
+    if (name) {
+      navigate(`/packages?dest=${encodeURIComponent(name)}`);
+    } else {
+      navigate('/packages');
     }
-    setCurrentPage('packages');
   };
 
   return (

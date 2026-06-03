@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import { Send, FileText, Check, MessageSquare, ClipboardCheck } from 'lucide-react';
-import { visasData } from '../mockData';
-import type { Lead } from '../mockData';
+import { visasData } from '../store/mockData';
+import { useAppStore } from '../store/useAppStore';
 
-interface VisaServicesProps {
-  onAddLead: (lead: Omit<Lead, 'id' | 'timestamp'>) => void;
-}
-
-export default function VisaServices({ onAddLead }: VisaServicesProps) {
+export default function VisaServices() {
+  const onAddLead = useAppStore(state => state.addLead);
   const [selectedCountry, setSelectedCountry] = useState<string>('Dubai (UAE)');
   
   // Chatbot State
