@@ -102,7 +102,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-heading font-bold text-xs text-slate-400 uppercase tracking-wider">Office Location</h4>
                   <p className="font-body text-xs text-slate-600 mt-1 leading-relaxed">
-                    Shop No. 34, GNP Galaxy Phase 1, Ambernath - 421501
+                    Shop No. 34, GNP Galaxy Phase 1,2, Ambernath - 421501
                   </p>
                 </div>
               </div>
