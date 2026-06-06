@@ -50,7 +50,7 @@ export default function Contact() {
         <img 
           src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80" 
           alt="Contact Us" 
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent" />
         <div className="relative z-10 text-center">
