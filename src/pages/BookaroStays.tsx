@@ -64,7 +64,7 @@ export default function BookaroStays() {
             BookaroStays
           </h1>
           <p className="text-slate-300 text-sm font-body">
-            Handpicked Luxury Villas & Premium Stays in Maharashtra and beyond.
+            Handpicked Luxury Villas & Premium Stays in Maharashtra and beyond expertise.
           </p>
         </div>
       </div>
