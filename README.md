@@ -72,3 +72,4 @@ export default defineConfig([
 ])
 ```
 Developed By @devron04 (Rounak Jha)
+Give a ⭐ If you ♥️ this Project
